@@ -1,0 +1,15 @@
+package com.workerpartner.home.register.registerascustomer.serviceimpl;
+
+import com.workerpartner.home.register.registerascustomer.entities.RegisterAsCustomerEntity;
+import com.workerpartner.home.register.registerascustomer.service.RegisterAsCustomerService;
+
+public class RegisterAsCustomerServiceImpl implements RegisterAsCustomerService {
+
+	@Override
+	public void registerCustomer(RegisterAsCustomerEntity customerEntity) {
+		
+	}
+	
+	
+
+}

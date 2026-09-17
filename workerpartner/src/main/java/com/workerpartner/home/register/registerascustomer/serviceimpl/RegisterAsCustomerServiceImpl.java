@@ -1,0 +1,30 @@
+package com.workerpartner.home.register.registerascustomer.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.stereotype.Service;
+
+import com.workerpartner.home.register.registerascustomer.entities.RegisterAsCustomerEntity;
+import com.workerpartner.home.register.registerascustomer.repository.RegisterAsCustomerRepo;
+import com.workerpartner.home.register.registerascustomer.service.RegisterAsCustomerService;
+
+@Service
+public class RegisterAsCustomerServiceImpl implements RegisterAsCustomerService {
+
+	
+	private final RegisterAsCustomerRepo customRepo;
+	
+	public RegisterAsCustomerServiceImpl( RegisterAsCustomerRepo customRepo)
+	{
+		this.customRepo =  customRepo;
+	}
+	
+	@Override
+	public void registerCustomer(RegisterAsCustomerEntity customerEntity) {
+		
+		customRepo.save(customerEntity);
+	}
+	
+	
+
+}

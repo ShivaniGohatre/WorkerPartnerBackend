@@ -1,0 +1,9 @@
+package com.workerpartner.home.register.registerascustomer.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.workerpartner.home.register.registerascustomer.entities.RegisterAsCustomerEntity;
+
+public interface RegisterAsCustomerRepo extends JpaRepository<RegisterAsCustomerEntity, Integer> {
+
+}

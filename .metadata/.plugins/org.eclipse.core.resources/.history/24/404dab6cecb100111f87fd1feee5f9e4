@@ -1,0 +1,10 @@
+package com.workerpartner.home.register.registerascustomer.service;
+
+import com.workerpartner.home.register.registerascustomer.entities.RegisterAsCustomerEntity;
+
+@Component
+public interface RegisterAsCustomerService {
+
+	public void registerCustomer(RegisterAsCustomerEntity customerEntity);
+	
+}
