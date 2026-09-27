@@ -31,7 +31,6 @@ public class EmployeeEntities {
 	private String address;
     private String state;
     private String pincode;
-    @Column(name = "aadhar_number") // Map to exact DB column name    
     private String aadharNumber;
     private String panNumber;
     private String email;
