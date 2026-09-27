@@ -12,12 +12,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+@Entity
+@Table(name = "kyc_master_data")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "kyc_master_data")
 public class KYCMasterData {
 
     @Id
@@ -36,7 +37,6 @@ public class KYCMasterData {
     @Column(name = "dob")
     private Date dob;
 
-    @Column(name = "is_valid")
-    private Boolean isValid = true;
+ 
 
 }
