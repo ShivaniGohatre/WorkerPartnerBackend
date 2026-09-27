@@ -42,6 +42,29 @@ public class VerificationServiceImpl implements VerificationService{
 		return verificationResp;
 	}
 	
+	@Override
+	public VerificationResponse verifyPan(String name, String pan)
+	{
+		Optional<KYCMasterData> kycMasterData = verificationRepo.searchByNameAndPan(name, pan);
+		
+		VerificationResponse verificationRespo = new VerificationResponse();
+		
+		if(kycMasterData.isEmpty() || kycMasterData == null)
+		{
+			verificationRespo.setVerified(false);
+			verificationRespo.setMessage("Name or Pan not Verified");
+		}
+		else
+		{
+			verificationRespo.setVerified(true);
+			verificationRespo.setMessage("Name and Pan Verified");
+		}
+		
+		return verificationRespo;
+		
+		
+	}
+	
 
 	
 	

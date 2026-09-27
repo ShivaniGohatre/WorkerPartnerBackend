@@ -28,8 +28,15 @@ public class VerificationController {
 	public ResponseEntity<VerificationResponse> verifyAadhar(@RequestParam String name, @RequestParam String aadharNumber)
 	{
 		VerificationResponse verificationRespo= verificationService.verifyAadhar(name, aadharNumber);
-		System.out.println(verificationRespo.getMessage());
 		 return  ResponseEntity.status(HttpStatus.OK).body(verificationRespo);
+		
+	}
+	@GetMapping("/verify/pan")
+	public ResponseEntity<VerificationResponse> verifyPan(@RequestParam String name, @RequestParam String panNumber)
+	{
+		VerificationResponse verificationRespo = verificationService.verifyPan(name, panNumber);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(verificationRespo);
 		
 	}
 }

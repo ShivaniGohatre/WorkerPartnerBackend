@@ -15,6 +15,9 @@ public interface VerificationRepo extends JpaRepository<KYCMasterData, Long> {
 	@Query("SELECT k FROM KYCMasterData k WHERE k.name = :name AND k.aadharNumber = :aadharNumber")
 	Optional<KYCMasterData> searchByNameAndAadhar(@Param("name") String name, @Param("aadharNumber") String aadharNumber);
 	
+	@Query("SELECT k FROM KYCMasterData k WHERE k.name = :name AND k.panNumber = :panNumber")
+	Optional<KYCMasterData> searchByNameAndPan(@Param("name") String name, @Param("panNumber") String panNumber);
+	
 //SQL	
 //	@Query(value = "SELECT * FROM kyc_master_data WHERE name = :name AND aadhar_number = :aadharNumber", 
 //		       nativeQuery = true)

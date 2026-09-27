@@ -6,4 +6,7 @@ public interface VerificationService {
 
 	public VerificationResponse verifyAadhar(String name, String aadhar);
 	
+	public VerificationResponse verifyPan(String name, String pan);
+
+	
 }
