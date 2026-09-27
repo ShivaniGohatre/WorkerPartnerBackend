@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "register_as_customer")
 public class RegisterAsCustomerEntity {
 
@@ -25,7 +25,7 @@ public class RegisterAsCustomerEntity {
     private String firstName;
     private String lastName;
     private String phone;
-    private String address;
+	private String address;
     private String state;
     private String pincode;
     private String email;

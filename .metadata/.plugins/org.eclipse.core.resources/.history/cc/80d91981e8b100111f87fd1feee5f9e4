@@ -1,5 +1,0 @@
-package com.workerpartner.home.register.registerascustomer.service;
-
-public interface RegisterAsCustomerService {
-
-}
