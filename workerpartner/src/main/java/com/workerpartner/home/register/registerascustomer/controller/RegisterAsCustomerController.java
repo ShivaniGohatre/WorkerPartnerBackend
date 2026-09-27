@@ -13,7 +13,6 @@ import com.workerpartner.home.register.registerascustomer.service.RegisterAsCust
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200") // Fixes "Failed to fetch" CORS error
 public class RegisterAsCustomerController {
 
 	private final RegisterAsCustomerService customerService;
