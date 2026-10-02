@@ -30,5 +30,6 @@ public class RegisterAsCustomerEntity {
     private String pincode;
     private String email;
     private String password;
+    private String custNo;
 
 }

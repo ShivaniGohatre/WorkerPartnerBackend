@@ -35,4 +35,5 @@ public class EmployeeEntities {
     private String panNumber;
     private String email;
     private String password;
+    private String empNo;
 }
