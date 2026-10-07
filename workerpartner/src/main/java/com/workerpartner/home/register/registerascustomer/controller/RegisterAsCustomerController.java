@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.workerpartner.home.register.registerascustomer.entities.RegisterAsCustomerEntity;
 import com.workerpartner.home.register.registerascustomer.service.RegisterAsCustomerService;
+import com.workerpartner.home.register.verification.VerificationResponse;
 
 @RestController
 @RequestMapping("/api")
@@ -23,11 +24,11 @@ public class RegisterAsCustomerController {
 	}
 	
 	@PostMapping("/registercustomer")
-	public ResponseEntity<String> registerCustomer(@RequestBody RegisterAsCustomerEntity customerEntity)
+	public ResponseEntity<VerificationResponse> registerCustomer(@RequestBody RegisterAsCustomerEntity customerEntity)
 	{
 		
-		customerService.registerCustomer(customerEntity);
+		VerificationResponse response = customerService.registerCustomer(customerEntity);
 		
-	    return new ResponseEntity<>(HttpStatus.OK);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
 	}
 }

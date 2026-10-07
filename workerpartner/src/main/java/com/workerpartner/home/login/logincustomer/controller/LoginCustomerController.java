@@ -1,43 +1,40 @@
-package com.workerpartner.home.login.loginemployee.controller;
+package com.workerpartner.home.login.logincustomer.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workerpartner.globalConfig.UsernameTypeDetector;
-import com.workerpartner.home.login.loginemployee.service.LoginemployeeService;
+import com.workerpartner.home.login.logincustomer.service.LoginCustomerService;
 import com.workerpartner.home.register.verification.VerificationResponse;
-
 
 @RestController
 @RequestMapping("/api")
-public class LoginEmployeeController {
+public class LoginCustomerController {
 	
-	public LoginemployeeService loginEmpService;
-	public LoginEmployeeController(LoginemployeeService loginEmpService) {
-		this.loginEmpService=loginEmpService;
+	
+	public LoginCustomerService loginCustService;
+	
+	LoginCustomerController(LoginCustomerService loginCustService)
+	{
+		this.loginCustService=loginCustService;
 	}
-
-	@GetMapping("/find/employee")
-	public ResponseEntity<VerificationResponse> findEmploye(@RequestParam String username, @RequestParam String password)
+	
+	@GetMapping("find/customer")
+	public ResponseEntity<VerificationResponse> findCustomer(@RequestParam String username, @RequestParam String password)
 	{
 		UsernameTypeDetector userNameTypeDetector = new UsernameTypeDetector();
 		VerificationResponse response = new VerificationResponse();
 		if(userNameTypeDetector.isEmail(username)) {
-			response= loginEmpService.findEmployeeByEmailAndPassword(username, password);
+			response= loginCustService.findEmployeeByEmailAndPassword(username, password);
 		}
 		else if(userNameTypeDetector.isPhone(username)) {
-			response= loginEmpService.findEmployeeByPhoneNoAndPassword(username, password);
+			response= loginCustService.findEmployeeByPhoneNoAndPassword(username, password);
 		}
 		
-	
-		Boolean result = false;
-		result= response.isVerified();
 		return  ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
 	}
-
 }
