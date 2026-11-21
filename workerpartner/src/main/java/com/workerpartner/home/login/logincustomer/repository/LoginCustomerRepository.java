@@ -13,10 +13,10 @@ import com.workerpartner.home.register.registerasemployee.entities.EmployeeEntit
 @Repository
 public interface LoginCustomerRepository extends JpaRepository<RegisterAsCustomerEntity, Long> {
 
-	@Query("SELECT k FROM RegisterAsCustomerEntity k WHERE k.email = :email AND k.password = :password")
-	Optional<RegisterAsCustomerEntity> searchByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+	@Query("SELECT k FROM RegisterAsCustomerEntity k WHERE k.email = :email")
+	Optional<RegisterAsCustomerEntity> searchByEmail(@Param("email") String email);
 	
-	@Query("SELECT k FROM RegisterAsCustomerEntity k WHERE k.phone = :phone AND k.password = :password")
-	Optional<RegisterAsCustomerEntity> searchByPhoneNoAndPassword(@Param("phone") String phone, @Param("password") String password);
+	@Query("SELECT k FROM RegisterAsCustomerEntity k WHERE k.phone = :phone")
+	Optional<RegisterAsCustomerEntity> searchByPhoneNo(@Param("phone") String phone);
 
 }

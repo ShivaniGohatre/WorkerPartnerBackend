@@ -1,5 +1,7 @@
 package com.workerpartner.home.register.registerasemployee.entities;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -8,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,4 +39,6 @@ public class EmployeeEntities {
     private String email;
     private String password;
     private String empNo;
+    @Transient
+    private List<String> professionList;
 }

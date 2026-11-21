@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.workerpartner.home.register.registerascustomer.entities.RegisterAsCustomerEntity;
@@ -19,12 +20,14 @@ public class RegisterAsCustomerServiceImpl implements RegisterAsCustomerService 
 	
 	private final RegisterAsCustomerRepo customRepo;
 	public SequenceGeneratorService service;
+	public PasswordEncoder passwordEncoder;
 	
 	public RegisterAsCustomerServiceImpl( RegisterAsCustomerRepo customRepo,
-			SequenceGeneratorService service)
+			SequenceGeneratorService service, PasswordEncoder passwordEncoder)
 	{
 		this.customRepo =  customRepo;
 		this.service=service;
+		this.passwordEncoder= passwordEncoder;
 	}
 	
 	@Override
@@ -36,6 +39,9 @@ public class RegisterAsCustomerServiceImpl implements RegisterAsCustomerService 
 			String custNo = service.sequenceGeneration(SequenceTypes.CUSTOMER);
 
 			customerEntity.setCustNo(custNo);
+			
+			customerEntity.setPassword(passwordEncoder.encode(customerEntity.getPassword()));
+			
 			customRepo.save(customerEntity);
 			verifyRes.setVerified(true);
 

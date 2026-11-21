@@ -14,11 +14,11 @@ import com.workerpartner.home.register.verification.entity.KYCMasterData;
 @Repository
 public interface LoginEmployeeRepository extends JpaRepository<EmployeeEntities,Long>{
 	
-	@Query("SELECT k FROM EmployeeEntities k WHERE k.email = :email AND k.password = :password")
-	Optional<EmployeeEntities> searchByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+	@Query("SELECT k FROM EmployeeEntities k WHERE k.email = :email")
+	Optional<EmployeeEntities> searchByEmail(@Param("email") String email);
 	
-	@Query("SELECT k FROM EmployeeEntities k WHERE k.phone = :phone AND k.password = :password")
-	Optional<EmployeeEntities> searchByPhoneNoAndPassword(@Param("phone") String phone, @Param("password") String password);
+	@Query("SELECT k FROM EmployeeEntities k WHERE k.phone = :phone")
+	Optional<EmployeeEntities> searchByPhoneNo(@Param("phone") String phone);
 
 }
 

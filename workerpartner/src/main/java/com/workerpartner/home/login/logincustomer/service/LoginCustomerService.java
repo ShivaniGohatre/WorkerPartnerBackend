@@ -4,7 +4,7 @@ import com.workerpartner.home.register.verification.VerificationResponse;
 
 public interface LoginCustomerService {
 
-	public VerificationResponse findEmployeeByEmailAndPassword(String username, String password);
-	public VerificationResponse findEmployeeByPhoneNoAndPassword(String username, String password);
+	public VerificationResponse findCustomerByEmailAndPassword(String username, String password);
+	public VerificationResponse findCustomerByPhoneNoAndPassword(String username, String password);
 
 }

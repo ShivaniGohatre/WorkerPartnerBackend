@@ -13,6 +13,7 @@ public class VerificationResponse {
  
 	private boolean isVerified;
 	private String message;
-	
+	private String token;
+	private String name;
 	
 }
